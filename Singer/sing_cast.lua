@@ -21,6 +21,9 @@ function cast.check_song(song_list,targ,buffs,spell_recasts,recasts,JA_WS_lock,r
             local song = setting.dummy[i]
 
             if basesongs - i >= 0 and currsongs == maxsongs - i and spell_recasts[get.song_by_name(song).id] <= 0 then
+                -- add integration with Gearswap
+                windower.send_command('input //gs c set ExtraSongsMode Dummy;wait 1')
+				log('ExtraSongsMode: ', song)
                 cast.MA(song, ta)
                 return true
             end
